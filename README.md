@@ -104,7 +104,7 @@ Download the latest release from [here](https://github.com/ermanimer/modbus_tcp_
         | 14 | Quantity of coils is out of range. |
 
 * #### ReadDiscreteInputsAsync(ushort startingAddress, ushort quantityOfDiscreteInputs)
-    Reads discrete inputs from the remote device. Returns a bool array indicating each discrete input from the first discrete input.
+    Reads discrete inputs from the remote device. Returns a bool array indicating each discrete input starting from the first discrete input.
     * ##### Parameters:
         * **startingAddress**: Starting adddress of the discrete inputs.
         * **quantityOfDiscreteInputs**: Quantity of the discrete inputs to read.
