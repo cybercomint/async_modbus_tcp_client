@@ -1,6 +1,6 @@
 # Asynchronous Modbus Tcp Client Library For .Net
 
-[![Build Status](https://travis-ci.com/ermanimer/async_modbus_tcp_client.svg?branch=master)](https://travis-ci.com/ermanimer/async_modbus_tcp_client)
+[![Build status](https://ci.appveyor.com/api/projects/status/ysfcu8mtfxovjeei?svg=true)](https://ci.appveyor.com/project/ermanimer/async-modbus-tcp-client)
 
 ## Overview
 Modbus_Tcp_Client is is a simple, fast and asynchronous .Net library which communicates with remote devices using [Modbus Application Protocol V1.1b3](http://modbus.org/ "Modbus.org").

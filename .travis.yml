@@ -1,2 +1,0 @@
-language: csharp
-solution: async_modbus_tcp_client.sln
