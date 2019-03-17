@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums.cs" />
-    <Compile Include="Exceptions.cs" />
+    <Compile Include="ModbusTcpClientException.cs" />
     <Compile Include="ModbusTcpClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
