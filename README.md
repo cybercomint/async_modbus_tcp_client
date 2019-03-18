@@ -6,16 +6,16 @@
 Modbus_Tcp_Client is is a simple, fast and asynchronous .Net library which communicates with remote devices using [Modbus Application Protocol V1.1b3](http://modbus.org/ "Modbus.org").
 
 ## Supported Modbus Functions
-| Function Name | Function Code | Description |
-| :------------ | :-----------: | :---------- |
-| ReadCoils | 1 | Reads digital outputs. |
-| ReadDiscreteInputs |2 | Reads digital inputs. |
-| ReadHoldingRegisters |3 | Reads analog outputs. |
-| ReadInputRegisters |4 | Reads analog inputs. |
-| WriteSingleCoil |5 | Writes digital output. |
-| WriteSingleRegister |6 | Writes analog output. |
-| WriteMultipleCoils |15 | Writes digital outputs. |
-| WriteMultipleRegisters |16 | Writes analog outputs. |
+| Function Name | Function Code |
+| :------------ | :-----------: |
+| ReadCoils | 1 |
+| ReadDiscreteInputs |2 |
+| ReadHoldingRegisters |3 |
+| ReadInputRegisters |4 |
+| WriteSingleCoil |5 |
+| WriteSingleRegister |6 |
+| WriteMultipleCoils |15 |
+| WriteMultipleRegisters |16 |
 
 ## Installation
 Download the latest release from [here](https://github.com/ermanimer/modbus_tcp_client/releases "Releases") and add reference to your project.
@@ -196,7 +196,7 @@ Download the latest release from [here](https://github.com/ermanimer/modbus_tcp_
     Reads input registers from the remote device. Returns a byte array indicating each input register starting from the first input register.
     * ##### Parameters:
         * **startingAddress**: Starting adddress of the input registers.
-        * **quantityOfInputRegister**: Quantity of the input registers to read.
+        * **quantityOfInputRegisters**: Quantity of the input registers to read.
     * ##### Example:
         ```c#
         private async void buttonReadInputRegisters_Click(object sender, EventArgs e) {
