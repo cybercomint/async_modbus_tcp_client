@@ -67,7 +67,7 @@ Download the latest release from [here](https://github.com/ermanimer/modbus_tcp_
         | 7 | Network stream failed. |
 
 * #### Close()
-    Disposes tcp client instance and requests that the underlying tcp connection be closed. Returns a bool indicating if the task is successfully completed.
+    Disposes the tcp client instance and requests that the underlying tcp connection be closed. Returns a bool indicating if the task is successfully completed.
     * ##### Example:
         ```c#
         private async void buttonClose_Click(object sender, EventArgs e) {
