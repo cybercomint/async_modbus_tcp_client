@@ -66,6 +66,30 @@ Download the latest release from [here](https://github.com/ermanimer/modbus_tcp_
         | 6 | Connection failed. |
         | 7 | Network stream failed. |
 
+* #### Close()
+    Disposes this TcpClient instance and requests that the underlying TCP connection be closed. Returns a bool indicating if the closing task is successfully completed.
+    * ##### Example:
+        ```c#
+        private async void buttonClose_Click(object sender, EventArgs e) {
+            try {
+                //close modbus tcp client
+                bool result = await Task.Run(modbusTcpClient.Close);
+
+                //print result
+                Debug.WriteLine(result.ToString());
+            }
+            catch(ModbusTcpClientException modbusTcpClientException) {
+                Debug.WriteLine(modbusTcpClientException.ToString());
+            }
+        }
+        ```
+    * ##### Exceptions:
+        Throws only ModbusTcpClientException.
+        
+        | Exception Code | Exception Message |
+        |:--------------:| :---------------- |
+        | 1 | ModbusTcpClient is busy. |
+
 * #### ReadCoilsAsync(ushort startingAddress, ushort quantityOfCoils)
     Reads coils from the remote device. Returns a bool array indicating each coil starting from the first coil.
     * ##### Parameters:

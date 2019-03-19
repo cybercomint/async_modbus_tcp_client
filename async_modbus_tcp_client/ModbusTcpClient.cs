@@ -47,6 +47,20 @@ namespace async_modbus_tcp_client {
             }
         }
 
+        public Task<bool> Close() {
+            if(Busy) {
+                throw new ModbusTcpClientException(1, "ModbusTcpClient is busy.");
+            }
+            if(networkStream != null) {
+                networkStream.Close();
+            }
+            if(tcpClient != null) {
+                tcpClient.Close();
+            }
+            Connected = false;
+            return Task.FromResult(!(Connected = false));
+        }
+
         private async Task<byte[]> SendRequestAsync(byte[] adu) {
             if(Busy) {
                 throw new ModbusTcpClientException(1, "ModbusTcpClient is busy.");
