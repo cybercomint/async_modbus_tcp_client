@@ -433,7 +433,9 @@ Download the latest release from [here](https://github.com/ermanimer/modbus_tcp_
         | 13 | Modbus exception, server device failure. |
         | 20 | Byte count of registers is out of range. |
 
-## All ModbusTcpClientException Codes and Messages
+## Exceptions
+All ModbusTcpClientException codes and messages.
+
 | Exception Code | Exception Message |
 |:--------------:| :---------------- |
 | 1 | ModbusTcpClient is busy. |
@@ -457,9 +459,11 @@ Download the latest release from [here](https://github.com/ermanimer/modbus_tcp_
 | 19 | Quantity of coils is out of range. |
 | 20 | Byte count of registers is out of range. |
 
-## PLC Test Results
-* #### Delta DVP12SE:
-    Tested on 22.03.2019
+## Test Results
+* #### Delta DVP12SE PLC:
+    | Model | CPU Version | Test Date |
+    | :---: | :---------: | :-------: |
+    | DVP12SE11T | V1.92A3 | 22.03.2019 |
 
     | Function Name | Function Code | Result |
     | :------------ | :-----------: | :----- |
