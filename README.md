@@ -458,15 +458,16 @@ Download the latest release from [here](https://github.com/ermanimer/modbus_tcp_
 | 20 | Byte count of registers is out of range. |
 
 ## PLC Test Results
+* #### Delta DVP12SE:
+    Tested on 22.03.2019
 
-### Delta DVP12SE
-| Function Name | Function Code | Result |
-| :------------ | :-----------: | :----- |
-| ReadCoils | 1 | Reads maximum 256 coils from bit memory S, starting from address 0.
-| ReadDiscreteInputs |2 | Reads maximum 256 coils from bit memory S, starting from address 0.
-| ReadHoldingRegisters |3 | Reads maximum 100 registers from register memety D starting from address 0.
-| ReadInputRegisters |4 | Not implemented.
-| WriteSingleCoil |5 | Writes coil bit memory S, starting from address 0.
-| WriteSingleRegister |6 | Writes register to register memety D starting from address 0.
-| WriteMultipleCoils |15 | Writes coils bit memory S, starting from address 0.
-| WriteMultipleRegisters |16 | Writes registers to register memety D starting from address 0.
+    | Function Name | Function Code | Result |
+    | :------------ | :-----------: | :----- |
+    | ReadCoils | 1 | Reads maximum 256 coils from bit memory S, starting from address 0.
+    | ReadDiscreteInputs |2 | Reads maximum 256 coils from bit memory S, starting from address 0.
+    | ReadHoldingRegisters |3 | Reads maximum 100 registers from register memety D starting from address 0.
+    | ReadInputRegisters |4 | Not implemented.
+    | WriteSingleCoil |5 | Writes coil bit memory S, starting from address 0.
+    | WriteSingleRegister |6 | Writes register to register memety D starting from address 0.
+    | WriteMultipleCoils |15 | Writes coils bit memory S, starting from address 0.
+    | WriteMultipleRegisters |16 | Writes registers to register memety D starting from address 0.
