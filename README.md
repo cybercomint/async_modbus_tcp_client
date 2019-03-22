@@ -459,11 +459,11 @@ All ModbusTcpClientException codes and messages.
 | 19 | Quantity of coils is out of range. |
 | 20 | Byte count of registers is out of range. |
 
-## Test Results
-* #### Delta DVP12SE PLC:
-    | Model | CPU Version | Test Date |
-    | :---: | :---------: | :-------: |
-    | DVP12SE11T | V1.92A3 | 22.03.2019 |
+## Tests
+* #### PLC Test 001:
+    | Brand | Model | CPU Version | Test Date |
+    | :---- | :---: | :---------: | :-------: |
+    | Delta | DVP12SE11T | V1.92A3 | 22.03.2019 |
 
     | Function Name | Function Code | Result |
     | :------------ | :-----------: | :----- |
