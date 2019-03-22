@@ -460,11 +460,13 @@ All ModbusTcpClientException codes and messages.
 | 20 | Byte count of registers is out of range. |
 
 ## Tests
-* #### PLC Test 001:
+* #### Test 01:
     | Brand | Model | CPU Version | Test Date |
     | :---- | :---: | :---------: | :-------: |
     | Delta | DVP12SE11T | V1.92A3 | 22.03.2019 |
-
+    
+    **Results**:
+    
     | Function Name | Function Code | Result |
     | :------------ | :-----------: | :----- |
     | ReadCoils | 1 | Reads maximum 256 coils from bit memory S, starting from address 0.
