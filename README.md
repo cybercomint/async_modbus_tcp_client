@@ -470,4 +470,4 @@ Download the latest release from [here](https://github.com/ermanimer/modbus_tcp_
     | WriteSingleCoil |5 | Writes coil to bit memory S, starting from address 0.
     | WriteSingleRegister |6 | Writes register to register memety D, starting from address 0.
     | WriteMultipleCoils |15 | Writes coils to bit memory S, starting from address 0.
-    | WriteMultipleRegisters |16 | Writes registers to register memety D, starting from address 0.
+    | WriteMultipleRegisters |16 | Writes registers to register memory D, starting from address 0.
