@@ -16,7 +16,7 @@ async_modbus_tcp_client is is a simple, fast and asynchronous .Net library which
 | WriteMultipleRegisters |16 |
 
 ## Installation
-Download the latest release from [here](https://github.com/ermanimer/modbus_tcp_client/releases "Releases") and add reference to your project or run the following command in the Nuget Package Manager Console.
+Download the latest release from [here](https://github.com/ermanimer/modbus_tcp_client/releases "Releases") and add reference to your project or run the following command in Nuget Package Manager Console.
 
     PM> Install-Package async_modbus_tcp_client
 
