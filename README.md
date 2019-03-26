@@ -186,15 +186,15 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
                 byte[] bytesOfHoldingRegisters = await modbusTcpClient.ReadHoldingRegistersAsync(0, quantityOfRegisters);
 
                 //print ushort
-                ushort _ushort = BitConverter.ToUInt16(bytesOfHoldingRegisters, 0);
+                ushort _ushort =  modbusTcpClient.GetUShort(bytesOfHoldingRegisters, 0);
                 Debug.WriteLine($"ushort : {_ushort.ToString()}");
 
                 //print uint
-                uint _uint = BitConverter.ToUInt32(bytesOfHoldingRegisters, 2);
+                uint _uint = modbusTcpClient.GetUInt(bytesOfHoldingRegisters, 2);
                 Debug.WriteLine($"uint : {_uint.ToString()}");
 
                 //print float
-                float _float = BitConverter.ToSingle(bytesOfHoldingRegisters, 6);
+                float _float = modbusTcpClient.GetFloat(bytesOfHoldingRegisters, 6);
                 Debug.WriteLine($"float : {_float.ToString()}");
             }
             catch(ModbusTcpClientException modbusTcpClientException) {
@@ -234,15 +234,15 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
                 byte[] bytesOfInputRegisters = await modbusTcpClient.ReadInputRegistersAsync(0, quantityOfRegisters);
 
                 //print ushort
-                ushort _ushort = BitConverter.ToUInt16(bytesOfInputRegisters, 0);
+                ushort _ushort =  modbusTcpClient.GetUShort(bytesOfInputRegisters, 0);
                 Debug.WriteLine($"ushort : {_ushort.ToString()}");
 
                 //print uint
-                uint _uint = BitConverter.ToUInt32(bytesOfInputRegisters, 2);
+                uint _uint = modbusTcpClient.GetUInt(bytesOfInputRegisters, 2);
                 Debug.WriteLine($"uint : {_uint.ToString()}");
 
                 //print float
-                float _float = BitConverter.ToSingle(bytesOfInputRegisters, 6);
+                float _float = modbusTcpClient.GetFloat(bytesOfInputRegisters, 6);
                 Debug.WriteLine($"float : {_float.ToString()}");
             }
             catch(ModbusTcpClientException modbusTcpClientException) {
@@ -396,18 +396,15 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
 
                 //bytes of the ushort
                 ushort _ushort = 1000;
-                byte[] bytesOfUshort = BitConverter.GetBytes(_ushort);
-                bytesOfUshort.CopyTo(bytesOfRegisters, 0);
+                modbusTcpClient.SetUShort(bytesOfRegisters, 0, _ushort);
 
                 //bytes of uint
                 uint _uint = 100000;
-                byte[] bytesOfUint = BitConverter.GetBytes(_uint);
-                bytesOfUint.CopyTo(bytesOfRegisters, 2);
+                modbusTcpClient.SetUInt(bytesOfRegisters, 2, _uint);
 
                 //bytes of float
                 float _float = 3.14f;
-                byte[] bytesOfFloat = BitConverter.GetBytes(_float);
-                bytesOfFloat.CopyTo(bytesOfRegisters, 6);
+                modbusTcpClient.SetFloat(bytesOfRegisters, 6, _float);
 
                 bool result = await modbusTcpClient.WriteMultipleRegistersAsync(0, bytesOfRegisters);
 
