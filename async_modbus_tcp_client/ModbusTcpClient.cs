@@ -242,13 +242,13 @@ namespace async_modbus_tcp_client {
             //read
             byte[] response = await SendRequestAsync(adu);
             //handle response
-            byte[] bytesOfHoldingRegisters = new byte[quantityOfHoldingRegisters * 2];
+            int byteCount = quantityOfHoldingRegisters * 2;
+            byte[] bytesOfHoldingRegisters = new byte[byteCount];
             byte functionCode = response[7];
             switch(functionCode) {
                 case (byte) FunctionCode.ReadHoldingRegisters:
-                    for(int holdingRegisterIndex = 0; holdingRegisterIndex < quantityOfHoldingRegisters; holdingRegisterIndex++) {
-                        bytesOfHoldingRegisters[holdingRegisterIndex * 2] = response[9 + holdingRegisterIndex * 2 + 1];
-                        bytesOfHoldingRegisters[holdingRegisterIndex * 2 + 1] = response[9 + holdingRegisterIndex * 2];
+                    for(int byteIndex = 0; byteIndex < byteCount; byteIndex++) {
+                        bytesOfHoldingRegisters[0] = response[9 + byteIndex];
                     }
                     break;
                 case (byte) ErrorCode.ReadHoldingRegisters:
@@ -293,13 +293,13 @@ namespace async_modbus_tcp_client {
             //read
             byte[] response = await SendRequestAsync(adu);
             //handle response
-            byte[] bytesOfInputRegisters = new byte[quantityOfInputRegisters * 2];
+            int byteCount = quantityOfInputRegisters * 2;
+            byte[] bytesOfInputRegisters = new byte[byteCount];
             byte functionCode = response[7];
             switch(functionCode) {
                 case (byte) FunctionCode.ReadInputRegisters:
-                    for(int inputRegisterIndex = 0; inputRegisterIndex < quantityOfInputRegisters; inputRegisterIndex++) {
-                        bytesOfInputRegisters[inputRegisterIndex * 2] = response[9 + inputRegisterIndex * 2 + 1];
-                        bytesOfInputRegisters[inputRegisterIndex * 2 + 1] = response[9 + inputRegisterIndex * 2];
+                    for(int byteIndex = 0; byteIndex < byteCount; byteIndex++) {
+                        bytesOfInputRegisters[byteIndex] = response[9 + byteIndex];
                     }
                     break;
                 case (byte) ErrorCode.ReadInputRegisters:
@@ -485,11 +485,7 @@ namespace async_modbus_tcp_client {
             pdu[3] = (byte) (quantityOfRegisters >> 8);
             pdu[4] = (byte) (quantityOfRegisters & 255);
             pdu[5] = byteCount;
-            //bytesOfRegisters
-            for(int registerIndex = 0; registerIndex < quantityOfRegisters; registerIndex++) {
-                pdu[6 + registerIndex * 2] = bytesOfRegisters[registerIndex * 2 + 1];
-                pdu[6 + registerIndex * 2 + 1] = bytesOfRegisters[registerIndex * 2]; ;
-            }
+            bytesOfRegisters.CopyTo(pdu, 6);
             //mbap header
             ushort length = (ushort) (pdu.Length + 1);
             byte[] mbapHeader = CreateMBAPHeader(length);
@@ -521,6 +517,51 @@ namespace async_modbus_tcp_client {
                 default:
                     throw new ModbusTcpClientException(8, "Unexpected function code.");
             }
+        }
+
+        public ushort GetUShort(byte[] readBytes, ushort address) {
+            byte[] bytesOfUShort = new byte[2];
+            bytesOfUShort[0] = readBytes[address + 1];
+            bytesOfUShort[1] = readBytes[address];
+            return BitConverter.ToUInt16(bytesOfUShort, 0);
+        }
+
+        public void SetUshort(byte[] bytesToWrite, ushort address, ushort value) {
+            bytesToWrite[address] = (byte) (value >> 8);
+            bytesToWrite[address + 1] = (byte) (value & 255);
+        }
+
+        public uint GetUInt(byte[] readBytes, ushort address) {
+            byte[] bytesOfUInt = new byte[4];
+            bytesOfUInt[0] = readBytes[address + 3];
+            bytesOfUInt[1] = readBytes[address + 2];
+            bytesOfUInt[2] = readBytes[address + 1];
+            bytesOfUInt[3] = readBytes[address];
+            return BitConverter.ToUInt32(bytesOfUInt, 0);
+        }
+
+        public void SetUInt(byte[] bytesToWrite, ushort address, uint value) {
+            bytesToWrite[address] = (byte) ((value >> 24) & 255);
+            bytesToWrite[address + 1] = (byte) ((value >> 16) & 255);
+            bytesToWrite[address + 2] = (byte) ((value >> 8) & 255);
+            bytesToWrite[address + 3] = (byte) (value & 255);
+        }
+
+        public float GetFloat(byte[] readBytes, ushort address) {
+            byte[] bytesOfFloat = new byte[4];
+            bytesOfFloat[0] = readBytes[address + 3];
+            bytesOfFloat[1] = readBytes[address + 2];
+            bytesOfFloat[2] = readBytes[address + 1];
+            bytesOfFloat[3] = readBytes[address];
+            return BitConverter.ToSingle(bytesOfFloat, 0);
+        }
+
+        public void SetFloat(byte[] bytesToWrite, ushort address, float value) {
+            byte[] bytesOfFloat = BitConverter.GetBytes(value);
+            bytesToWrite[address] = bytesOfFloat[3];
+            bytesToWrite[address + 1] = bytesOfFloat[2];
+            bytesToWrite[address + 2] = bytesOfFloat[1];
+            bytesToWrite[address + 3] = bytesOfFloat[0];
         }
     }
 }
