@@ -526,7 +526,7 @@ namespace async_modbus_tcp_client {
             return BitConverter.ToUInt16(bytesOfUShort, 0);
         }
 
-        public void SetUshort(byte[] bytesToWrite, ushort address, ushort value) {
+        public void SetUShort(byte[] bytesToWrite, ushort address, ushort value) {
             bytesToWrite[address] = (byte) (value >> 8);
             bytesToWrite[address + 1] = (byte) (value & 255);
         }
