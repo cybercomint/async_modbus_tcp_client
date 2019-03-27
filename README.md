@@ -18,6 +18,13 @@ async_modbus_tcp_client is is a simple, fast and asynchronous .Net library which
 | WriteMultipleCoils |15 |
 | WriteMultipleRegisters |16 |
 
+## Supported DataTypes
+| Data Type | Description |
+| :-------- | :---------- |
+| ushort | Unsigned 16-bit integer |
+| uint | Unsigned 32-bit integer |
+| float | 32-bir floating point number |
+
 ## Installation
 Download the latest release from [here](https://github.com/ermanimer/async_modbus_tcp_client/releases "Releases") and add reference to your project or run the following command in Nuget Package Manager Console.
 
