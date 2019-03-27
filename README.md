@@ -77,7 +77,7 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
         | 7 | Network stream failed. |
 
 * #### Close()
-    Disposes the tcp client instance and requests that the underlying tcp connection be closed. Returns a bool indicating if the task is successfully completed.
+    Disposes the tcp client instance and requests that the underlying tcp connection be closed. Returns a bool indicating whether the task is successfully completed.
     * ##### Example:
         ```c#
         private async void buttonClose_Click(object sender, EventArgs e) {
@@ -275,7 +275,7 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
         | 17 | Quantity of input registers is out of range. |
 
 * #### WriteSingleCoilAsync(ushort coilAddress, bool coil)
-    Writes a single coil to the remote device. Returns a bool indicating if the task is successfully completed.
+    Writes a single coil to the remote device. Returns a bool indicating whether the task is successfully completed.
     * ##### Parameters:
         * **coilAddress**: Adddress of the coil.
         * **coil**: Coil to write.
@@ -311,7 +311,7 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
         | 13 | Modbus exception, server device failure. |
 
 * #### WriteSingleRegisterAsync(ushort registerAddress, byte[] bytesOfRegister)
-    Writes a single register to the remote device. Returns a bool indicating if the task is successfully completed.
+    Writes a single register to the remote device. Returns a bool indicating whether the task is successfully completed.
     * ##### Parameters:
         * **registerAddress**: Adddress of the register.
         * **bytesOfRegister**: Bytes of the register to write.
@@ -350,7 +350,7 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
         | 18 | Byte count of register is out of range. |
 
 * #### WriteMultipleCoilsAsync(ushort startingAddress, bool[] coils)
-    Writes multiple coils to the remote device. Returns a bool indicating if the task is successfully completed.
+    Writes multiple coils to the remote device. Returns a bool indicating whether the task is successfully completed.
     * ##### Parameters:
         * **coilAddress**: Startint address of the coils.
         * **coils**: Coils to write.
@@ -388,7 +388,7 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
         | 19 | Quantity of coils is out of range. |
 
 * #### WriteMultipleRegistersAsync(ushort startingAddress, byte[] bytesOfRegisters)
-    Writes multiple registers to the remote device. Returns a bool indicating if the writing task is successfully completed.
+    Writes multiple registers to the remote device. Returns a bool indicating whether the task is successfully completed.
     * ##### Parameters:
         * **coilAddress**: Starting address of the registers.
         * **bytesOfRegisters**: Bytes of the registers to write.
