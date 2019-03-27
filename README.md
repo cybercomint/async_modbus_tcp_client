@@ -18,7 +18,7 @@ async_modbus_tcp_client is is a simple, fast and asynchronous .Net library which
 | WriteMultipleCoils |15 |
 | WriteMultipleRegisters |16 |
 
-## Supported DataTypes
+## Supported Data Types
 | Data Type | Description |
 | :-------- | :---------- |
 | ushort | Unsigned 16-bit integer |
