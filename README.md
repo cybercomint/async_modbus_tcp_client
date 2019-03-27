@@ -25,7 +25,7 @@ async_modbus_tcp_client is the asynchronous version of [modbus_tcp_client](https
 | :-------- | :---------- |
 | ushort | Unsigned 16-bit integer |
 | uint | Unsigned 32-bit integer |
-| float | 32-bir floating point number |
+| float | 32-bit floating point number |
 
 ## Installation
 Download the latest release from [here](https://github.com/ermanimer/async_modbus_tcp_client/releases "Releases") and add reference to your project or run the following command in Nuget Package Manager Console.
