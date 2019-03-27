@@ -6,6 +6,8 @@
 ## Overview
 async_modbus_tcp_client is is a simple, fast and asynchronous .Net library which communicates with remote devices using [Modbus Application Protocol V1.1b3](http://modbus.org/ "Modbus.org").
 
+async_modbus_tcp_client is the asynchronous version of [modbus_tcp_client](https://github.com/ermanimer/modbus_tcp_client) and it is designed to be used with Windows Forms Applications without blocking the ui thread.
+
 ## Supported Modbus Functions
 | Function Name | Function Code |
 | :------------ | :-----------: |
@@ -55,7 +57,7 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
         ```c#
         private async void buttonConnect_Click(object sender, EventArgs e) {
             try {
-                //connect to the remote device
+                //connect to remote device
                 bool result = await Task.Run(modbusTcpClient.Connect);
 
                 //print result
@@ -104,7 +106,7 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
     Reads coils from the remote device. Returns a bool array indicating each coil starting from the first coil.
     * ##### Parameters:
         * **startingAddress**: Starting adddress of the coils.
-        * **quantityOfCoils**: Quantity of the coils to read.
+        * **quantityOfCoils**: Quantity of the coils.
     * ##### Example:
         ```c#
         private async void buttonReadCoils_Click(object sender, EventArgs e) {
@@ -143,7 +145,7 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
     Reads discrete inputs from the remote device. Returns a bool array indicating each discrete input starting from the first discrete input.
     * ##### Parameters:
         * **startingAddress**: Starting adddress of the discrete inputs.
-        * **quantityOfDiscreteInputs**: Quantity of the discrete inputs to read.
+        * **quantityOfDiscreteInputs**: Quantity of the discrete inputs.
     * ##### Example:
         ```c#
         private async void buttonReadDiscreteInputs_Click(object sender, EventArgs e) {
@@ -182,7 +184,7 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
     Reads holding registers from the remote device. Returns a byte array indicating each holding register starting from the first holding register.
     * ##### Parameters:
         * **startingAddress**: Starting adddress of the holding registers.
-        * **quantityOfHoldingRegisters**: Quantity of the holding registers to read.
+        * **quantityOfHoldingRegisters**: Quantity of the holding registers.
     * ##### Example:
         ```c#
         private async void buttonReadHoldingRegisters_Click(object sender, EventArgs e) {
@@ -230,7 +232,7 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
     Reads input registers from the remote device. Returns a byte array indicating each input register starting from the first input register.
     * ##### Parameters:
         * **startingAddress**: Starting adddress of the input registers.
-        * **quantityOfInputRegisters**: Quantity of the input registers to read.
+        * **quantityOfInputRegisters**: Quantity of the input registers.
     * ##### Example:
         ```c#
         private async void buttonReadInputRegisters_Click(object sender, EventArgs e) {
@@ -278,13 +280,13 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
     Writes a single coil to the remote device. Returns a bool indicating if the task is successfully completed.
     * ##### Parameters:
         * **coilAddress**: Adddress of the coil.
-        * **coil**: Coil to write.
+        * **coil**: Value of the coil.
     * ##### Example:
         ```c#
         private async void buttonWriteSingleCoil_Click(object sender, EventArgs e) {
             try {
                 //write true to the first coil 
-                bool result = await modbusTcpClient.WriteSingleCoilAsync(1, true);
+                bool result = await modbusTcpClient.WriteSingleCoilAsync(0, true);
 
                 //print result
                 Debug.WriteLine(result.ToString());
@@ -314,7 +316,7 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
     Writes a single register to the remote device. Returns a bool indicating if the task is successfully completed.
     * ##### Parameters:
         * **registerAddress**: Adddress of the register.
-        * **bytesOfRegister**: Bytes of the register to write.
+        * **bytesOfRegister**: Bytes of the register.
     * ##### Example:
         ```c#
         private async void buttonWriteSingleRegister_Click(object sender, EventArgs e) {
@@ -353,7 +355,7 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
     Writes multiple coils to the remote device. Returns a bool indicating if the task is successfully completed.
     * ##### Parameters:
         * **coilAddress**: Startint address of the coils.
-        * **coils**: Coils to write.
+        * **coils**: Values of the coils.
     * ##### Example:
         ```c#
         private async void buttonWriteMultipleCoils_Click(object sender, EventArgs e) {
@@ -391,7 +393,7 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
     Writes multiple registers to the remote device. Returns a bool indicating if the writing task is successfully completed.
     * ##### Parameters:
         * **coilAddress**: Starting address of the registers.
-        * **bytesOfRegisters**: Bytes of the registers to write.
+        * **bytesOfRegisters**: Bytes of the registers.
     * ##### Example:
         ```c#
         private async void buttonWriteMultipleRegisters_Click(object sender, EventArgs e) {
@@ -401,7 +403,7 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
                 int byteCount = 2 + 4 + 4; //ushort + uint + float
                 byte[] bytesOfRegisters = new byte[byteCount];
 
-                //bytes of the ushort
+                //bytes of ushort
                 ushort _ushort = 1000;
                 modbusTcpClient.SetUShort(bytesOfRegisters, 0, _ushort);
 
