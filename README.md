@@ -476,11 +476,11 @@ All ModbusTcpClientException codes and messages.
     
     | Function Name | Function Code | Result |
     | :------------ | :-----------: | :----- |
-    | ReadCoils | 1 | Reads maximum 256 coils from bit memory S, starting from address 0.
-    | ReadDiscreteInputs |2 | Reads maximum 256 coils from bit memory S, starting from address 0.
-    | ReadHoldingRegisters |3 | Reads maximum 100 registers from register memory D, starting from address 0.
-    | ReadInputRegisters |4 | Not implemented.
-    | WriteSingleCoil |5 | Writes coil to bit memory S, starting from address 0.
-    | WriteSingleRegister |6 | Writes register to register memety D, starting from address 0.
-    | WriteMultipleCoils |15 | Writes coils to bit memory S, starting from address 0.
-    | WriteMultipleRegisters |16 | Writes registers to register memory D, starting from address 0.
+    | ReadCoilsAsync | 1 | Reads maximum 256 coils from bit memory S, starting from address 0.
+    | ReadDiscreteInputsAsync |2 | Reads maximum 256 coils from bit memory S, starting from address 0.
+    | ReadHoldingRegistersAsync |3 | Reads maximum 100 registers from register memory D, starting from address 0.
+    | ReadInputRegistersAsync |4 | Not implemented.
+    | WriteSingleCoilAsync |5 | Writes coil to bit memory S, starting from address 0.
+    | WriteSingleRegisterAsync |6 | Writes register to register memety D, starting from address 0.
+    | WriteMultipleCoilsAsync |15 | Writes coils to bit memory S, starting from address 0.
+    | WriteMultipleRegistersAsync |16 | Writes registers to register memory D, starting from address 0.
