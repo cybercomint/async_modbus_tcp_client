@@ -1,6 +1,6 @@
 # Asynchronous Modbus Tcp Client Library For .Net
 
-![Nuget Total Downloads](https://img.shields.io/nuget/dt/async_modbus_tcp_client.svg?color=%4caf50&label=Nuget%20Total%20Downloads&style=flat-square)
+![Nuget Total Downloads](https://buildstats.info/nuget/async_modbus_tcp_client)
 
 ## Overview
 async_modbus_tcp_client is is a simple, fast and asynchronous .Net library which communicates with remote devices using [Modbus Application Protocol V1.1b3](http://modbus.org/ "Modbus.org").
