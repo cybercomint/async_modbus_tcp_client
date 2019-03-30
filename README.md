@@ -50,14 +50,14 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
     Gets a bool value indicating whether the ModbusTcpClient is connected to a remote device.
 
 ## Methods
-* #### Connect()
+* #### ConnectAsync()
     Connects to the remote device. Returns **Connected** property.
     * ##### Example:
         ```c#
         private async void buttonConnect_Click(object sender, EventArgs e) {
             try {
                 //connect to remote device
-                bool result = await Task.Run(modbusTcpClient.Connect);
+                bool result = await modbusTcpClient.Connect();
 
                 //print result
                 Debug.WriteLine(result.ToString());
@@ -81,10 +81,10 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
     Disposes the tcp client instance and requests that the underlying tcp connection be closed. Returns a bool indicating whether the task is successfully completed.
     * ##### Example:
         ```c#
-        private async void buttonClose_Click(object sender, EventArgs e) {
+        private void buttonClose_Click(object sender, EventArgs e) {
             try {
                 //close modbus tcp client
-                bool result = await Task.Run(modbusTcpClient.Close);
+                bool result = modbusTcpClient.Close();
 
                 //print result
                 Debug.WriteLine(result.ToString());

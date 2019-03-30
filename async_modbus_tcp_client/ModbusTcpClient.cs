@@ -20,15 +20,17 @@ namespace async_modbus_tcp_client {
             UnitIdentifier = unitIdentifier;
         }
 
-        public Task<bool> Connect() {
+        public async Task<bool> ConnectAsync() {
             if(Busy) {
                 throw new ModbusTcpClientException(1, "ModbusTcpClient is busy.");
             }
             Busy = true;
             try {
-                tcpClient = new TcpClient(Hostname, Port);
-                networkStream = tcpClient.GetStream();
-                return Task.FromResult(Connected = true);
+                await Task.Run(delegate {
+                    tcpClient = new TcpClient(Hostname, Port);
+                    networkStream = tcpClient.GetStream();
+                });
+                return Connected = true;
             }
             catch(ArgumentException) {
                 Connected = false;
@@ -47,7 +49,7 @@ namespace async_modbus_tcp_client {
             }
         }
 
-        public Task<bool> Close() {
+        public bool Close() {
             if(Busy) {
                 throw new ModbusTcpClientException(1, "ModbusTcpClient is busy.");
             }
@@ -58,7 +60,7 @@ namespace async_modbus_tcp_client {
                 tcpClient.Close();
             }
             Connected = false;
-            return Task.FromResult(!(Connected = false));
+            return !(Connected = false);
         }
 
         private async Task<byte[]> SendRequestAsync(byte[] adu) {
