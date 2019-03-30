@@ -57,7 +57,7 @@ Download the latest release from [here](https://github.com/ermanimer/async_modbu
         private async void buttonConnect_Click(object sender, EventArgs e) {
             try {
                 //connect to remote device
-                bool result = await modbusTcpClient.Connect();
+                bool result = await modbusTcpClient.ConnectAsync();
 
                 //print result
                 Debug.WriteLine(result.ToString());
